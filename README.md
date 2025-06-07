@@ -4,8 +4,8 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 
 ## 📦 Features
 
--   Scrapes sold listings for Pokémon TCG cards from eBay
--   Extracts raw listing info including title, price, condition, sale date, etc...
+- ✅ Scrapes sold listings for Pokémon TCG cards from eBay
+- ✅ Extracts raw listing info including title, price, condition, sale date, etc...
 -   Parses grading company (PSA, BGS, CGC, etc.) and grade
 -   Filters out unwanted listings (e.g., lots, proxies, bundles)
 -   Outputs clean, structured CSV
@@ -34,3 +34,4 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 | `set_name`       | Pokémon set                             |
 | `is_lot`         | `true` if listing is a lot or bulk sale |
 | `is_sealed`      | Link to the original eBay listing       |
+
