@@ -25,7 +25,9 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 ## Cleaned Data Model
 
 - Clean and Add the following
+
 | Field Name       | Description |
+|------------------|-----------------------------------------|
 | `raw_or_graded`  | Either `raw` or `graded`                |
 | `grading_company`| PSA, BGS, CGC, etc. (`N/A` if raw)      |
 | `grade`          | Card grade (e.g., "10", "9.5") or `N/A` |
