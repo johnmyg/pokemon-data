@@ -11,8 +11,15 @@ def fetch_ebay_search_results(start_url):
     headers = {"User-Agent": "Mozilla/5.0"}
     url = start_url
     data = []
+    visited_urls = set()
+    page_count = 0
+    # Ebay stops showing data over page 200
+    MAX_PAGES = 200
 
-    while url:
+    while url and url not in visited_urls and page_count < MAX_PAGES:
+        visited_urls.add(url)
+        page_count += 1
+
         response = requests.get(url, headers=headers)
         soup = BeautifulSoup(response.text, "lxml")
 
