@@ -3,7 +3,7 @@ import os
 from typing import List, Dict
 
 
-def write_to_csv(data: List[Dict], filename: str, append=False):
+def write_to_csv(data: List[Dict], filename: str, append: bool):
     if not data:
         print("No data to write.")
         return

@@ -1,15 +1,16 @@
 from src.scraper import fetch_ebay_search_results
 from src.data_to_csv import write_to_csv
-from src.utils import load_links
-from datetime import datetime, timedelta
+from src.utils import load_links, get_yesterday_dates, upload_file_to_s3
 import sys
+import os
 
 
 def main(daily_mode=False):
 
-    yesterday = datetime.now() - timedelta(days=1)
-    formatted_date = yesterday.strftime("%b %-d, %Y")
-    filename = f"ebay_listings_{formatted_date}.csv"  # filename with date
+    formatted_date, filename_date = get_yesterday_dates()
+    filename = f"ebay_listings_{filename_date}.csv"
+    object_name = f"data/raw/{filename}"
+    file_path = os.path.join("data", "raw", filename)
 
     links = load_links()
 
@@ -21,8 +22,9 @@ def main(daily_mode=False):
 
     if daily_mode:
         write_to_csv(list(unique_data), filename, append=True)
+        upload_file_to_s3(file_path, file_path)
     else:
-        write_to_csv(list(unique_data), "ebay_listings.csv")
+        write_to_csv(list(unique_data), "ebay_listings.csv", False)
 
 
 if __name__ == "__main__":
