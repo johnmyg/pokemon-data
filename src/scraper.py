@@ -6,7 +6,7 @@ import json
 # pyright: reportGeneralTypeIssues=false
 
 
-def fetch_ebay_search_results(start_url):
+def fetch_ebay_search_results(start_url, daily: bool, yesterday):
 
     headers = {"User-Agent": "Mozilla/5.0"}
     url = start_url
@@ -14,7 +14,7 @@ def fetch_ebay_search_results(start_url):
     visited_urls = set()
     page_count = 0
     # Ebay stops showing data over page 200
-    MAX_PAGES = 200
+    MAX_PAGES = 10 if daily else 200
 
     while url and url not in visited_urls and page_count < MAX_PAGES:
         visited_urls.add(url)
@@ -86,6 +86,12 @@ def fetch_ebay_search_results(start_url):
                         shipping_cost = float(ship_match.group(1).replace(",", ""))
 
             total_price = sold_price + shipping_cost
+
+            # check if daily is true and sold_date equals yesterday
+            # if so append the listing to data
+
+            if daily and sold_date != yesterday:
+                continue  # Skip if it's not from yesterday
 
             data.append(
                 {

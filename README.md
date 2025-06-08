@@ -35,3 +35,4 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 | `is_lot`         | `true` if listing is a lot or bulk sale |
 | `is_sealed`      | Link to the original eBay listing       |
 
+- Working on the daily scraping logic
