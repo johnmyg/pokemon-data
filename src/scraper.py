@@ -12,8 +12,10 @@ def fetch_ebay_search_results(start_url, daily: bool, yesterday):
     url = start_url
     data = []
     visited_urls = set()
-    page_count = 0
+    page_count = 1
     # Ebay stops showing data over page 200
+    # 10 is set for daily
+    # we link would have more than 2400 sold listings in a day
     MAX_PAGES = 10 if daily else 200
 
     while url and url not in visited_urls and page_count < MAX_PAGES:
