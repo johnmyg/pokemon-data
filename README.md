@@ -26,13 +26,20 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 
 - Clean and Add the following
 
+# Notes
+
+- Noticed some Magit the Gathering (MTG) cards were getting scraped because they had
+"tempest" on the name which is the name of a pokemon set.
+- Scrap anything with MTG / Magic the Gathering on title
+- Scrap Lot / Bulk listings 
+- Scrap anything with code cards / coins
+- Scrap other languages (korean, japanese)
+
 | Field Name       | Description |
 |------------------|-----------------------------------------|
 | `raw_or_graded`  | Either `raw` or `graded`                |
 | `grading_company`| PSA, BGS, CGC, etc. (`N/A` if raw)      |
 | `grade`          | Card grade (e.g., "10", "9.5") or `N/A` |
 | `set_name`       | Pokémon set                             |
-| `is_lot`         | `true` if listing is a lot or bulk sale |
 | `is_sealed`      | Link to the original eBay listing       |
 
-- Working on the daily scraping logic
