@@ -1,6 +1,12 @@
 import pandas as pd
 import re
+from pokemon_names import pokemon_names, set_names
 from datetime import datetime
+
+
+pd.set_option("display.max_rows", None)
+pd.set_option("display.max_columns", None)
+pd.set_option("display.width", 1000)
 
 
 def clean_pokemon_data(
@@ -35,8 +41,60 @@ def clean_pokemon_data(
     cleaned_df = cleaned_df[~cleaned_df["title"].str.contains(lang_pattern, na=False)]
     print(f"After removing other languages: {len(cleaned_df)} rows")
 
-    print(df.head())
+    cleaned_df["product_type"] = cleaned_df["title"].apply(determine_product_type)
+
+    cleaned_df = cleaned_df.reset_index(drop=True)
+
+    return cleaned_df.head()
+
+
+def determine_product_type(title):
+    """Determine if product is raw, graded, or sealed based on title"""
+
+    # Check for sealed products first
+    sealed_keywords = [
+        "booster",
+        "pack",
+        "box",
+        "case",
+        "sealed",
+        "factory sealed",
+        "blaster",
+        "hobby box",
+        "retail box",
+        "jumbo pack",
+        "fat pack",
+        "theme deck",
+        "starter deck",
+        "bundle",
+        "collection box",
+        "tin",
+        "etb",
+        "elite trainer box",
+        "premium collection",
+    ]
+
+    title_lower = title.lower()
+
+    for keyword in sealed_keywords:
+        if keyword in title_lower:
+            return "sealed"
+
+    # Check for grading companies
+    grading_companies = ["psa", "bgs", "cgc", "beckett", "sgc"]
+
+    for company in grading_companies:
+        if company in title_lower:
+            return "graded"
+
+    # Look for grade patterns like "PSA 10", "BGS 9.5"
+    grade_pattern = r"(?i)(psa|bgs|cgc|beckett|sgc)\s*\d+(\.\d+)?"
+    if re.search(grade_pattern, title):
+        return "graded"
+
+    # If not sealed or graded, it's raw
+    return "raw"
 
 
 if __name__ == "__main__":
-    clean_pokemon_data()
+    print(clean_pokemon_data())
