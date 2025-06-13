@@ -37,9 +37,7 @@ A data pipeline for scraping and analyzing eBay sold listings of Pokémon TCG ca
 
 | Field Name       | Description |
 |------------------|-----------------------------------------|
-| `raw_or_graded`  | Either `raw` or `graded`                |
+| `product_type `  | `raw, graded, sealed`                   |
 | `grading_company`| PSA, BGS, CGC, etc. (`N/A` if raw)      |
 | `grade`          | Card grade (e.g., "10", "9.5") or `N/A` |
 | `set_name`       | Pokémon set                             |
-| `is_sealed`      | Link to the original eBay listing       |
-

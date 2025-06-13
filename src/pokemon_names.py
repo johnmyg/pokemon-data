@@ -1079,12 +1079,22 @@ pokemon_names = {
 
 set_names = {  # Sword & Shield Base Set
     "sword shield": "Sword & Shield Base",
+    "sword and shield base": "Sword & Shield Base",
     "sword & shield": "Sword & Shield Base",
     "swsh": "Sword & Shield Base",
     "swsh1": "Sword & Shield Base",
     "swsh base": "Sword & Shield Base",
     "ssh": "Sword & Shield Base",
     "base sword shield": "Sword & Shield Base",
+    # Sword & Shield Promo
+    "sword shield promo": "Sword & Shield Base Promo",
+    "sword and shield base promo": "Sword & Shield Base Promo",
+    "sword & shield promo": "Sword & Shield Base Promo",
+    "swsh promo": "Sword & Shield Base Promo",
+    "swsh1 promo": "Sword & Shield Base Promo",
+    "swsh base promo": "Sword & Shield Base Promo",
+    "ssh promo": "Sword & Shield Base Promo",
+    "base sword shield promo": "Sword & Shield Promo",
     # Rebel Clash
     "rebel clash": "Rebel Clash",
     "swsh2": "Rebel Clash",
@@ -1170,6 +1180,7 @@ set_names = {  # Sword & Shield Base Set
     "crown zenith": "Crown Zenith",
     "crown": "Crown Zenith",
     "zenith": "Crown Zenith",
+    "galarian gallery": "Crown Zenith",
     "cz": "Crown Zenith",
     # Celebrations
     "celebrations": "Celebrations",
@@ -1178,11 +1189,23 @@ set_names = {  # Sword & Shield Base Set
     "25th": "Celebrations",
     # Scarlet & Violet Base Set
     "scarlet violet": "Scarlet & Violet Base",
+    "scarlet violet base": "Scarlet & Violet Base",
+    "scarlet and violet": "Scarlet & Violet Base",
+    "scarlet and violet base": "Scarlet & Violet Base",
     "scarlet & violet": "Scarlet & Violet Base",
+    "scarlet & violet base": "Scarlet & Violet Base",
     "sv1": "Scarlet & Violet Base",
     "sv01": "Scarlet & Violet Base",
     "sv base": "Scarlet & Violet Base",
     "base scarlet violet": "Scarlet & Violet Base",
+    # Scarlet & Violet Promo
+    "scarlet violet promo": "Scarlet & Violet Promo",
+    "scarlet violet promo": "Scarlet & Violet Promo",
+    "scarlet and violet promo": "Scarlet & Violet Promo",
+    "scarlet and violet promo": "Scarlet & Violet Promo",
+    "scarlet & violet promo": "Scarlet & Violet Promo",
+    "scarlet & violet promo": "Scarlet & Violet Promo",
+    "svp": "Scarlet & Violet Promo",
     # Paldea Evolved
     "paldea evolved": "Paldea Evolved",
     "sv2": "Paldea Evolved",
@@ -1195,6 +1218,7 @@ set_names = {  # Sword & Shield Base Set
     "sv03": "Obsidian Flames",
     "obsidian": "Obsidian Flames",
     "flames": "Obsidian Flames",
+    "obf": "Obsidian Flames",
     # Paradox Rift
     "paradox rift": "Paradox Rift",
     "sv4": "Paradox Rift",
