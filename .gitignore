@@ -1,2 +1,39 @@
-data/raw
+
 .env
+
+# Airflow generated files
+logs/
+config/
+airflow.cfg
+airflow_variables.json
+webserver_config.py
+
+# Data files (usually don't commit raw data)
+data/
+*.csv
+*.json
+*.parquet
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker volumes and generated files
+postgres-db-volume/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

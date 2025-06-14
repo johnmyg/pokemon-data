@@ -48,8 +48,9 @@ def clean_pokemon_data(
     cleaned_df["grade"] = cleaned_df["title"].apply(get_grade)
     cleaned_df = cleaned_df.reset_index(drop=True)
     cleaned_df["set_name"] = cleaned_df["title"].apply(get_set_name)
+    cleaned_df["sealed_type"] = cleaned_df.apply(get_sealed_type, axis=1)
 
-    return cleaned_df.head(20)
+    return cleaned_df.head(50)
 
 
 def determine_product_type(title):
@@ -171,6 +172,36 @@ def get_set_name(title):
             return value
 
     return ""
+
+
+def get_sealed_type(row):
+    title_lower = row["title"].lower()
+    if row["product_type"] != "sealed":
+        return ""
+    keyword_map = {
+        "booster box": "Booster Box",
+        "booster pack": "Booster Pack",
+        "elite trainer box": "Elite Trainer Box",
+        "etb": "Elite Trainer Box",
+        "theme deck": "Theme Deck",
+        "starter deck": "Starter Deck",
+        "collection box": "Collection Box",
+        "blister pack": "Blister Pack",
+        "fat pack": "Fat Pack",
+        "hobby box": "Hobby Box",
+        "retail box": "Retail Box",
+        "tin": "Tin",
+        "bundle": "Bundle",
+        "case": "Case",
+    }
+
+    for keyword, label in keyword_map.items():
+        # Escape the keyword for safe regex and add word boundaries
+        pattern = rf"\b{re.escape(keyword)}\b"
+        if re.search(pattern, title_lower, flags=re.IGNORECASE):
+            return label
+
+    return "Sealed Product"
 
 
 if __name__ == "__main__":
