@@ -1,5 +1,6 @@
 
 .env
+pokemon_env
 
 # Airflow generated files
 logs/

@@ -8,17 +8,21 @@ from airflow.operators.python import PythonOperator
 
 # Add src to Python path so we can import modules
 sys.path.append(os.path.join(os.path.dirname(__file__), "..", "src"))
+sys.path.append(os.path.join(os.path.dirname(__file__), "..", "data"))
 
 # Import existing functions
-from main import main
+from scraper import fetch_ebay_search_results
 from data_cleaner import clean_pokemon_data
 from data_to_csv import write_to_csv
+from utils import load_links
 
 
 def extract_task():
     """Wrapper for main scraping function"""
+    links = load_links()
+
     try:
-        result = main()
+        result = fetch_ebay_search_results()
         print(f"Extraction completed: {result}")
         return result
     except Exception as e:
