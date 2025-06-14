@@ -37,3 +37,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# OS files
+.DS_Store
+Thumbs.db
